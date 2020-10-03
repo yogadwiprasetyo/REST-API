@@ -1,5 +1,19 @@
+// Import orders schema
 const { Orders } = require("../models/orderSchema");
 
+/*
+* Checking is user buying this product.
+*
+* Find user in order schema and match 
+* product with id parameters.
+*
+* @param {request} req
+* @param {response} res
+* @param {callback} next
+*
+* @return JSON { message }
+*
+*/
 const isBuying = async (req, res, next) => {
   try {
     const order = await Orders.findOne({
