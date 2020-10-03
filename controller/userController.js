@@ -3,7 +3,7 @@ const { validationResult } = require("express-validator");
 
 const { Users } = require("../models/userSchema");
 const { Orders } = require("../models/orderSchema");
-const { getToken } = require("../config/generateToken");
+const getToken = require("../config/generateToken");
 
 /**
  * Getting all data users

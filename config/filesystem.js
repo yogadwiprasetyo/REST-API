@@ -1,13 +1,14 @@
-const multer = require("multer");
-
 /**
- * setup disk storage for handling file uploads
+ * Configuration disk storage for handling file uploads.
  *
- * destination: The folder to which the file has been saved
- * getFileName: The name of the file within the destination
+ * destination: The folder to which the file has been saved.
+ * getFileName: The name of the file within the destination.
  */
 
-// Generate file name with timeseconds
+// import package multer.
+const multer = require("multer");
+
+// Generate file name with timeseconds.
 function getFileName(req, file, cb) {
   const posExtension = file.originalname.lastIndexOf(".");
   const dateNow = Date.now();
@@ -16,7 +17,7 @@ function getFileName(req, file, cb) {
   cb(null, fileName);
 }
 
-// Storage for handling uploads about products
+// Storage for handling uploads about products.
 const storageProducts = multer.diskStorage({
   filename: getFileName,
   destination: function (req, file, cb) {
@@ -24,7 +25,7 @@ const storageProducts = multer.diskStorage({
   },
 });
 
-// Storage for handling uploads about a profile
+// Storage for handling uploads about a profile.
 const storageProfiles = multer.diskStorage({
   filename: getFileName,
   destination: function (req, file, cb) {
